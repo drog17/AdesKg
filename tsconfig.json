@@ -16,7 +16,7 @@
     "app/**/*.tsx",
     "**/*.ts",
     "**/*.tsx",
-    ".expo/types/**/*.ts",
+    "src/Shared/types/**/*.ts",
     "expo-env.d.ts",
     "app/context/AuthContext.ts"
   ]
