@@ -89,7 +89,7 @@ const EnterCode: FC = () => {
 
       if (response.data.code) {
         router.replace({
-          pathname: '/../features/(auth)/enterCode/EnterCode',
+          pathname: '../features/(auth)/enterCode/EnterCode',
           params: { code: response.data.code, email: email },
         })
       }
