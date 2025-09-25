@@ -1,9 +1,9 @@
-declare module '*.svg' {
-    import React from 'react';
-    import { SvgProps } from 'react-native-svg';
-    const content: React.FC<SvgProps>;
-    export default content;
-  }
+// declare module '*.svg' {
+//     import React from 'react';
+//     import { SvgProps } from 'react-native-svg';
+//     const content: React.FC<SvgProps>;
+//     export default content;
+//   }
 declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.png';
@@ -17,4 +17,9 @@ declare module '*.mov' {
     const src: string;
     export default src;
 }
-  
+  declare module '*.svg' {
+  import React from 'react';
+  import { SvgProps } from 'react-native-svg';
+  const content: React.FC<SvgProps>;
+  export default content;
+}
