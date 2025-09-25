@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Image, ScrollView, Linking } from 'react-native'
 import React, { useEffect } from 'react'
-import { Background } from '@/src/Shared/components/Background'
+import { Background } from '@/Shared/components/Background'
 import { useNavigation } from 'expo-router'
-import { CustomButton } from '@/src/Shared/components/navigation/CustomButton'
-import WhatsApp from "@/assets/images/WhatsApp.svg";
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack'
+import { CustomButton } from '@/Shared/components/navigation/CustomButton'
+import WhatsApp from "@assets/images/WhatsApp.svg";
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
 
 
 const Delivery = () => {
@@ -28,7 +28,7 @@ const Delivery = () => {
           <View style={styles.forGaps}>
             <View style={styles.condition}>
               <Image
-                source={require('@/assets/images/contactIcons/deliver.jpg')}
+                source={require('@assets/images/contactIcons/deliver.jpg')}
                 style={styles.deliver}
               />
               <Text style={styles.deliverCondition}>Условия доставки</Text>
@@ -85,7 +85,7 @@ const Delivery = () => {
                 </Text>
               </View>
               <Image
-                source={require('@/assets/images/contactIcons/boxes.jpg')}
+                source={require('@assets/images/contactIcons/boxes.jpg')}
                 style={styles.boxesImage}
               />
               <View style={styles.bottomBoxes}>

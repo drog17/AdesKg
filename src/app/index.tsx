@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native'
-import CustomButton from '../Shared/components/CustomButton/CustomButton'
+import {CustomButton} from '../Shared/components/CustomButton/CustomButton'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import {
@@ -46,7 +46,7 @@ const App = () => {
   }))
   return (
     <ImageBackground
-      source={require('../assets/images/Graident_16.png')}
+      source={require('@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode='cover'
     >
@@ -56,17 +56,17 @@ const App = () => {
             <Animated.View style={[styles.logoContainer, logoAnimatedStyle]}>
               <Image
                 style={styles.logo}
-                source={require('../assets/images/logo.png')}
+                source={require('@assets/images/logo.png')}
               />
             </Animated.View>
             <Animated.View style={[styles.btns, buttonsAnimatedStyle]}>
               <CustomButton
                 title="Войти"
-                handlePress={() => router.push('/(auth)/sign-in/sign-in')}
+                onPress={() => router.push('/(auth)/sign-in/sign-in')}
               />
               <CustomButton
                 title="Регистрация"
-                handlePress={() => router.push('/(auth)/sign-up/sign-up')}
+                onPress={() => router.push('/(auth)/sign-up/sign-up')}
                 buttonStyle={{
                   backgroundColor: '#fffffa',
                   borderWidth: 1,

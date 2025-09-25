@@ -11,12 +11,12 @@ import {
 import React, { FC, useState, useEffect, useRef } from 'react'
 import FormField from '../../../components/formField/FormField'
 import { styles } from './style'
-import CustomBotton from '@/src/Shared/components/CustomButton/CustomButton'
+import CustomBotton from '@/Shared/components/CustomButton/CustomButton'
 import { router, Link } from 'expo-router'
-import CustomCheckBox from '@/src/Shared/components/CustomCheckBox/CustomCheckBox'
+import CustomCheckBox from '@/Shared/components/CustomCheckBox/CustomCheckBox'
 import { Svg, Path } from 'react-native-svg'
 import { useNavigation } from '@react-navigation/native'
-import Notification from '@/src/Shared/components/notification/Notification'
+import Notification from '@/Shared/components/notification/Notification'
 import { OtpInput, OtpInputRef } from 'react-native-otp-entry'
 import axios from 'axios'
 import { useAuth } from '@/app/context/AuthContext'
@@ -312,7 +312,7 @@ const SignUp: FC = () => {
 
   return (
     <ImageBackground
-      source={require('../../../assets/images/Graident_16.png')}
+      source={require('../@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode="cover"
     >

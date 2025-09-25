@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import ArrowLeft from "@/assets/images/ArrowLeft.svg";
+import ArrowLeft from "@assets/images/ArrowLeft.svg";
 import { useNavigation } from "expo-router";
 
 interface GoBackProps {

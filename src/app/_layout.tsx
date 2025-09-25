@@ -25,13 +25,13 @@ SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    900: require('../assets/fonts/Montserrat-Black.ttf'),
-    700: require('../assets/fonts/Montserrat-Bold.ttf'),
-    800: require('../assets/fonts/Montserrat-ExtraBold.ttf'),
-    300: require('../assets/fonts/Montserrat-Light.ttf'),
-    500: require('../assets/fonts/Montserrat-Medium.ttf'),
-    400: require('../assets/fonts/Montserrat-Regular.ttf'),
-    600: require('../assets/fonts/Montserrat-SemiBold.ttf'),
+    900: require('@assets/fonts/Montserrat-Black.ttf'),
+    700: require('@assets/fonts/Montserrat-Bold.ttf'),
+    800: require('@assets/fonts/Montserrat-ExtraBold.ttf'),
+    300: require('@assets/fonts/Montserrat-Light.ttf'),
+    500: require('@assets/fonts/Montserrat-Medium.ttf'),
+    400: require('@assets/fonts/Montserrat-Regular.ttf'),
+    600: require('@assets/fonts/Montserrat-SemiBold.ttf'),
   })
 
   useEffect(() => {

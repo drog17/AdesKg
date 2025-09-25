@@ -10,7 +10,7 @@ import {
 import React, { FC, useState } from 'react'
 import FormField from '../../../components/formField/FormField'
 import { styles } from './style'
-import CustomButton from '@/src/Shared/components/CustomButton/CustomButton'
+import CustomButton from '@/Shared/components/CustomButton/CustomButton'
 import { router } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import { useNavigation } from '@react-navigation/native'
@@ -64,7 +64,7 @@ const ForgotPassword: FC = () => {
 
   return (
     <ImageBackground
-      source={require('../../../assets/images/Graident_16.png')}
+      source={require('../@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode="cover"
     >

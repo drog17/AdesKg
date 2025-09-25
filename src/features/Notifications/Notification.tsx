@@ -3,9 +3,9 @@ import { useNavigation } from 'expo-router'
 import { Text, View, FlatList, Image } from 'react-native'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/Data/store/store'
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack'
-import { Background } from '@/src/Shared/components/Background'
-import { NotificationItem } from '@/src/Shared/components/NotificationItem'
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
+import { Background } from '@/Shared/components/Background'
+import { NotificationItem } from '@/Shared/components/NotificationItem'
 import { IOrderData } from '@/Data/store/slices/getStatusOrder/status.order.slice'
 import { useDispatch } from 'react-redux'
 import { setNotifications } from '@/Data/store/slices/notificationDelivered/notificationDeliverd.slice'
@@ -101,7 +101,7 @@ export default function Notification() {
         ) : (
           <View style={styles.list}>
             <Image
-              source={require('@/assets/images/Illustration.png')}
+              source={require('@assets/images/Illustration.png')}
               style={styles.img}
             />
             <Text style={styles.desc}>У вас пока нет уведомлений</Text>

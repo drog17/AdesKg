@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { Text, TouchableOpacity, View,} from 'react-native';
 import * as Clipboard from 'expo-clipboard';
-import CopyIcon from '../../assets/images/Copy.svg';
+import CopyIcon from '@assets/images/Copy.svg';
 import { styles } from './HelloUserStyle';
 
 interface HelloUserProps {

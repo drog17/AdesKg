@@ -1,7 +1,7 @@
-import backgroundImage from '@/assets/images/adesFon.jpg'
-import { HelloUser } from '@/src/Shared/components/HelloUser'
-import InventoryStatus from '@/src/Shared/components/inventoryStatus/InvertoryStatus'
-import SearchBar from '@/src/Shared/components/searchBar/SearchBar'
+import backgroundImage from '@assets/images/adesFon.jpg'
+import { HelloUser } from '@/Shared/components/HelloUser'
+import InventoryStatus from '@/Shared/components/inventoryStatus/InvertoryStatus'
+import SearchBar from '@/Shared/components/searchBar/SearchBar'
 import {
   IProductHistory,
   setProductHistory,

@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { GoBackBtn } from '../GoBackBtn'
-import { Background } from '@/src/Shared/components/Background'
-import OrdersStatus from '@/src/Shared/components/ordersStatus/OrdersStatus'
+import { Background } from '@/Shared/components/Background'
+import OrdersStatus from '@/Shared/components/ordersStatus/OrdersStatus'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/Data/store/store'
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack'
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
 
 const In_Stocks = () => {
   const navigation = useNavigation()

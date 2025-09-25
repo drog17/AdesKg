@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import Arrow from '@/assets/images/ArrowIcon.svg'
+import Arrow from '@assets/images/ArrowIcon.svg'
 import { type FC } from 'react'
 import { styles } from "./CustomButtonStyle";
 

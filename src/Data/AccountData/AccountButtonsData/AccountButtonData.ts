@@ -1,12 +1,12 @@
-import TaoBaoIcon from '@/assets/images/TaoBao.svg'
-import PhoneIcon from '@/assets/images/Phone.svg'
-import MessageIcon from '@/assets/images/Message.svg'
-import DocumentIcon from '@/assets/images/Document.svg'
-import PackageIcon from '@/assets/images/Package.svg'
-import ChatIcon from '@/assets/images/Chat.svg'
-import QuestionIcon from '@/assets/images/Question.svg'
-import LockIcon from '@/assets/images/Lock.svg'
-import QuitIcon from '@/assets/images/Quit.svg'
+import TaoBaoIcon from '@assets/images/TaoBao.svg'
+import PhoneIcon from '@assets/images/Phone.svg'
+import MessageIcon from '@assets/images/Message.svg'
+import DocumentIcon from '@assets/images/Document.svg'
+import PackageIcon from '@assets/images/Package.svg'
+import ChatIcon from '@assets/images/Chat.svg'
+import QuestionIcon from '@assets/images/Question.svg'
+import LockIcon from '@assets/images/Lock.svg'
+import QuitIcon from '@assets/images/Quit.svg'
 
 
 export const AccountButtonData = [

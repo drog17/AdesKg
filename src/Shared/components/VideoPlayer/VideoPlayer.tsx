@@ -16,17 +16,17 @@ export const VideoPlayer = () => {
     {
       id: 1,
       url: 'https://www.youtube.com/shorts/7l3WXuZmQrk?enablejsapi=1',
-      poster: require('@/assets/images/contactIcons/1TaoBao.jpg'),
+      poster: require('@assets/images/contactIcons/1TaoBao.jpg'),
     },
     {
       id: 2,
       url: 'https://www.youtube.com/embed/nwKFK7S_NIs?enablejsapi=1',
-      poster: require('@/assets/images/contactIcons/TaoBao.jpg'),
+      poster: require('@assets/images/contactIcons/TaoBao.jpg'),
     },
     {
       id: 3,
       url: 'https://youtube.com/shorts/Lwt16jizc3k?si=z-oc27FBZazGG9zk',
-      poster: require('@/assets/images/contactIcons/TaoBao.jpg'),
+      poster: require('@assets/images/contactIcons/TaoBao.jpg'),
     },
   ]
 

@@ -9,12 +9,12 @@ import {
   Keyboard,
 } from 'react-native'
 import React, { FC, useState, useEffect, useRef } from 'react'
-import CustomButton from '@/src/Shared/components/CustomButton/CustomButton'
+import CustomButton from '@/Shared/components/CustomButton/CustomButton'
 import { router, useLocalSearchParams } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from './style'
-import Notification from '@/src/Shared/components/notification/Notification'
+import Notification from '@/Shared/components/notification/Notification'
 import { OtpInput, OtpInputRef } from 'react-native-otp-entry'
 import axios from 'axios'
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
@@ -140,7 +140,7 @@ const EnterCode: FC = () => {
 
   return (
     <ImageBackground
-      source={require('../../../assets/images/Graident_16.png')}
+      source={require('../@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode="cover"
     >

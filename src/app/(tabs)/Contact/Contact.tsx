@@ -1,14 +1,14 @@
 import { Text, View, SafeAreaView, Linking } from "react-native";
 import React, { FC, useState } from "react";
 import { router, Href } from "expo-router";
-import { CustomButton } from "@/src/Shared/components/navigation/CustomButton";
-import ChatIcon from "@/assets/images/contactIcons/Icon - Chat.svg";
-import DeliveryIcon from "@/assets/images/contactIcons/Icon - Delivery.svg";
-import MoneyIcon from "@/assets/images/contactIcons/Icon - Money.svg";
-import PackageIcon from "@/assets/images/contactIcons/Icon - Package.svg";
-import { BottomModal } from "@/src/Shared/components/Modal/BottomModal";
-import { Background } from "@/src/Shared/components/Background";
-import { HelloUser } from "@/src/Shared/components/HelloUser";
+import { CustomButton } from "@/Shared/components/CustomButton/CustomButton";
+import ChatIcon from "@assets/images/contactIcons/Icon - Chat.svg";
+import DeliveryIcon from "@assets/images/contactIcons/Icon - Delivery.svg";
+import MoneyIcon from "@assets/images/contactIcons/Icon - Money.svg";
+import PackageIcon from "@assets/images/contactIcons/Icon - Package.svg";
+import { BottomModal } from "@/Shared/components/Modal/BottomModal";
+import { Background } from "@/Shared/components/Background";
+import { HelloUser } from "@/Shared/components/HelloUser";
 import { useAuth } from "@/app/context/AuthContext";
 import { StyleSheet } from 'react-native'
 
@@ -17,63 +17,61 @@ const Contact: FC = () => {
   const { userProfile } = useAuth()
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
-  
 
- const handlePress = (buttonName: string, route: string | null) => {
-   if (route) {
-     router.push(route as Href<string | object>);
-   } else {
-     setSelectedButton(buttonName);
-     setModalVisible(true);
-   }
- };
- const openWhatsAppChat = (phoneNumber: string) => {
-   const url = `https://wa.me/${phoneNumber}`;
-   Linking.openURL(url).catch((err) =>
-     console.error("Ошибка открытия WhatsApp:", err)
-   );
- };
+
+  const handlePress = (buttonName: string, route: string | null) => {
+    if (route) {
+      // router.push(route as Href<HrefObject>);
+    } else {
+      setSelectedButton(buttonName);
+      setModalVisible(true);
+    }
+  };
+  const openWhatsAppChat = (phoneNumber: string) => {
+    const url = `https://wa.me/${phoneNumber}`;
+    Linking.openURL(url).catch((err) =>
+      console.error("Ошибка открытия WhatsApp:", err)
+    );
+  };
   return (
-    <Background
-    >
+    <Background>
       <SafeAreaView style={styles.header}>
-      <View style={styles.firstSection}>
+        <View style={styles.firstSection}>
           <HelloUser firstName={userProfile.name} id={userProfile.personal_code} />
         </View>
-      <View style={styles.banner}>
-        <CustomButton
-          icon={ChatIcon}
-          title="Связаться с менеджером"
-          onPress={() => handlePress("Связаться с менеджером", null)}
-        />
-        <CustomButton
-          icon={DeliveryIcon}
-          title="Оформить доставку"
-          onPress={() =>
-            handlePress("Оформить доставку", "Screens/ContactScreens/Delivery")
-          }
-        />
-        <CustomButton
-          icon={MoneyIcon}
-          title="Выкуп товара"
-          onPress={() => openWhatsAppChat("996502905055")}
-        />
-        <CustomButton
-          icon={PackageIcon}
-          title="Крупногабарит"
-          onPress={() =>
-            handlePress("Крупногабарит", "Screens/ContactScreens/LargePackage")
-          }
-        />
-      </View>
-      {selectedButton === "Связаться с менеджером" && (
-        <BottomModal
-          headTitle="Связаться с менеджером"
-          visible={modalVisible}
-          onClose={() => setModalVisible(false)}
-        />
-      )}
-    </SafeAreaView>
+        <View style={styles.banner}>
+          <CustomButton
+            icon={<ChatIcon width={24} height={24} />}
+            title="Связаться с менеджером"
+            onPress={() => handlePress("Связаться с менеджером", null)} />
+          <CustomButton
+            icon={<DeliveryIcon width={24} height={24}/>}
+            title="Оформить доставку"
+            onPress={() =>
+              handlePress("Оформить доставку", "Screens/ContactScreens/Delivery")
+            }
+          />
+          <CustomButton
+            icon={<MoneyIcon/>}
+            title="Выкуп товара"
+            onPress={() => openWhatsAppChat("996502905055")}
+          />
+          <CustomButton
+            icon={<PackageIcon/>}
+            title="Крупногабарит"
+            onPress={() =>
+              handlePress("Крупногабарит", "Screens/ContactScreens/LargePackage")
+            }
+          />
+        </View>
+        {selectedButton === "Связаться с менеджером" && (
+          <BottomModal
+            headTitle="Связаться с менеджером"
+            visible={modalVisible}
+            onClose={() => setModalVisible(false)}
+          />
+        )}
+      </SafeAreaView>
     </Background>
   );
 };
@@ -134,6 +132,5 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     gap: 10,
   },
-
 }
 );

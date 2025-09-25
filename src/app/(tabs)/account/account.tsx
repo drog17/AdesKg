@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { ImageBackground, Linking, SafeAreaView, View } from 'react-native'
-import backgroundImage from '@/assets/images/adesFon.jpg'
-import { CustomButton } from '@/src/Shared/components/navigation/CustomButton'
-import { DoubleCustomButton } from '@/src/Shared/components/navigation/BoubleCustomButton'
+import backgroundImage from '@assets/images/adesFon.jpg'
+import { CustomButton } from '@/Shared/components/navigation/CustomButton'
+import { DoubleCustomButton } from '@/Shared/components/navigation/BoubleCustomButton'
 import { AccountButtonData } from '@/Data/AccountData/AccountButtonsData/AccountButtonData'
-import { HelloUser } from '@/src/Shared/components/HelloUser'
+import { HelloUser } from '@/Shared/components/HelloUser'
 import { Href, useRouter } from 'expo-router'
-import { BottomModal } from '@/src/Shared/components/Modal/BottomModal'
-import { CenterModal } from '@/src/Shared/components/Modal/CenterModal'
+import { BottomModal } from '@/Shared/components/Modal/BottomModal'
+import { CenterModal } from '@/Shared/components/Modal/CenterModal'
 import { useAuth } from '@/app/context/AuthContext'
 import { StyleSheet } from 'react-native'
-import WhatsappIcon from '@/assets/images/WhatsApp.svg'
+import WhatsappIcon from '@assets/images/WhatsApp.svg'
 
 const Account = () => {
   const [isBottomModalVisible, setBottomModalVisible] = useState(false)
@@ -23,7 +23,7 @@ const Account = () => {
 
   const handlePress = (buttonName: string, route: string | null) => {
     if (route) {
-      router.push(route as Href<string | object>)
+      // router.push(route as Href<string | object>)
     } else {
       setModalTitle(buttonName)
       if (buttonName === 'Помощь') {

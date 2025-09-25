@@ -1,5 +1,5 @@
-import newsImg1 from '@/assets/images/newsImage1.jpg'
-import newsImg2 from '@/assets/images/newsImage2.jpg'
+import newsImg1 from '@assets/images/newsImage1.jpg'
+import newsImg2 from '@assets/images/newsImage2.jpg'
 
 export const AccountNewsData = [
     {

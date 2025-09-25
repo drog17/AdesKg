@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import PlayIcon from '@/assets/images/playIcon.svg';
+import PlayIcon from '@assets/images/playIcon.svg';
 import { styles } from './PlayIconStyles';
 
 interface PlayButtonProps {

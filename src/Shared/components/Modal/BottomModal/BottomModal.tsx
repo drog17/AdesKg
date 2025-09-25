@@ -8,10 +8,10 @@ import {
 } from 'react-native'
 import React, { FC, useState, useEffect } from 'react'
 import { Portal } from 'react-native-paper'
-import WhatsappIcon from '@/assets/images/WhatsApp.svg'
-import { DoubleCustomButton } from '@/src/Shared/components/navigation/BoubleCustomButton/DoubleCustomButton'
+import WhatsappIcon from '@assets/images/WhatsApp.svg'
+import { DoubleCustomButton } from '@/Shared/components/navigation/BoubleCustomButton/DoubleCustomButton'
 import { styles } from './BottomModalStyle'
-import { CustomButton } from '@/src/Shared/components/navigation/CustomButton'
+import { CustomButton } from '@/Shared/components/navigation/CustomButton'
 
 interface BottomModalProps {
   visible: boolean

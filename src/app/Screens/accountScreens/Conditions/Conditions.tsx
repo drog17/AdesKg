@@ -2,10 +2,10 @@ import { Image, ScrollView, Text, View} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from './ConditionsStyle';
 import { useEffect } from 'react';
-import { Background } from '@/src/Shared/components/Background';
-import conditionImg from '@/assets/images/conditionImg.jpg'
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack'
-import { WhiteBack } from '@/src/Shared/components/WhiteBack';
+import { Background } from '@/Shared/components/Background';
+import conditionImg from '@assets/images/conditionImg.jpg'
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
+import { WhiteBack } from '@/Shared/components/WhiteBack';
 
 const Conditions = () => {
     const navigation = useNavigation();

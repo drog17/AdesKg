@@ -1,10 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View, Linking, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from 'expo-router';
-import { Background } from '@/src/Shared/components/Background';
-import { CustomButton } from '@/src/Shared/components/navigation/CustomButton';
-import WhatsApp from "@/assets/images/WhatsApp.svg";
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack';
+import { Background } from '@/Shared/components/Background/Background';
+import { CustomButton } from '@/Shared/components/navigation/CustomButton';
+import WhatsApp from "@assets/images/WhatsApp.svg";
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack';
 const LargePackage = () => {
   const navigation = useNavigation();
   useEffect(() => {
@@ -23,7 +23,7 @@ const LargePackage = () => {
       <GoBack title="Связь" />
       <View style={styles.container}>
         <View style={styles.infoBanner}>
-          <Image source={require("@/assets/images/contactIcons/LargePackage.jpg")} style={styles.package}/>
+          <Image source={require("@assets/images/contactIcons/LargePackage.jpg")} style={styles.package}/>
           <View style={styles.sendBox}>
             <Text style={styles.header}>
               Чтобы рассчитать стоимость доставки вашего товара - нам нужно знать

@@ -5,12 +5,12 @@ import {
   Platform,
 } from 'react-native'
 import React, { FC, useState, useEffect } from 'react'
-import CustomButton from '@/src/Shared/components/CustomButton/CustomButton'
+import { CustomButton } from '@/Shared/components/CustomButton/CustomButton'
 import { Svg, Path } from 'react-native-svg'
 import { Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-import FormField from '@/src/Shared/components/formField/FormField';
+import FormField from '@/Shared/components/formField/FormField';
 import { styles } from './ChangePasswordStyles';
 import { Href, router } from 'expo-router';
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
@@ -66,7 +66,7 @@ const ChangePassword: FC = () => {
 
   return (
     <ImageBackground
-      source={require('../../../../assets/images/Graident_16.png')}
+      source={require('@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode="cover"
     >
@@ -112,9 +112,9 @@ const ChangePassword: FC = () => {
                   otherStyles={{
                     ...(message && !form.email
                       ? {
-                          borderColor: '#f40303',
-                          borderWidth: 1,
-                        }
+                        borderColor: '#f40303',
+                        borderWidth: 1,
+                      }
                       : null),
                     marginBottom: 25,
                   }}
@@ -122,10 +122,14 @@ const ChangePassword: FC = () => {
                   placeholder="example@gmail.com"
                 />
                 <CustomButton
-                  title="Отправить код"
-                  handlePress={submit}
+                  // title="Отправить код"
+                  // handlePress={submit}
+                  // isLoading={isLoading}
+                  // Disabled={isDisabled}
+                  title="Отправить сообщение"
+                  onPress={submit} 
                   isLoading={isLoading}
-                  Disabled={isDisabled}
+                  disabled={isDisabled}
                 />
               </View>
             </ScrollView>

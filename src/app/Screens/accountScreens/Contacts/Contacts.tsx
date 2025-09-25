@@ -1,12 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
-import { Background } from '@/src/Shared/components/Background';
-import { WhiteBack } from '@/src/Shared/components/WhiteBack';
+import { Background } from '@/Shared/components/Background';
+import { WhiteBack } from '@/Shared/components/WhiteBack';
 import { styles } from './ContactsStyles';
 import { Linking, Text, TouchableOpacity, View } from 'react-native';
-import InstagramIcon from '@/assets/images/Instagram.svg'
-import TelegramIcon from '@/assets/images/Telegram.svg'
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack'
+import InstagramIcon from '@assets/images/Instagram.svg'
+import TelegramIcon from '@assets/images/Telegram.svg'
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
 
 
 const Contacts = () => {

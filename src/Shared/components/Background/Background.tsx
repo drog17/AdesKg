@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import { ImageBackground } from 'react-native'
-import BackFon from '@/assets/images/adesFon.jpg'
+import BackFon from '@assets/images/adesFon.jpg'
 import { styles } from './BackgroundStyle'
 
 interface BackgroundProps {

@@ -2,11 +2,11 @@ import { Text, View, ScrollView, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from './TaoBaoStyles'
 import { useEffect } from 'react'
-import { Background } from '@/src/Shared/components/Background'
-import taoBaoImg from '@/assets/images/taoBaoInKG.jpg'
-import advantagesImg from '@/assets/images/advantagesImg.jpg'
-import { VideoPlayer } from '@/src/Shared/components/VideoPlayer'
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack'
+import { Background } from '@/Shared/components/Background'
+import taoBaoImg from '@assets/images/taoBaoInKG.jpg'
+import advantagesImg from '@assets/images/advantagesImg.jpg'
+import { VideoPlayer } from '@/Shared/components/VideoPlayer'
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
 
 const TaoBao = () => {
   const navigation = useNavigation()

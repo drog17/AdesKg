@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import { GoBackBtn } from '../GoBackBtn'
-import { Background } from '@/src/Shared/components/Background'
-import OrdersStatus from '@/src/Shared/components/ordersStatus/OrdersStatus'
+import { Background } from '@/Shared/components/Background'
+import OrdersStatus from '@/Shared/components/ordersStatus/OrdersStatus'
 
 import { RootState } from '@/Data/store/store'
 

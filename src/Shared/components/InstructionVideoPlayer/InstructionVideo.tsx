@@ -16,32 +16,32 @@ export const VideoPlayer = () => {
     {
       id: 1,
       url: 'https://www.youtube.com/embed/nwKFK7S_NIs?enablejsapi=1',
-      poster: require('@/assets/images/contactIcons/1TaoBao.jpg'),
+      poster: require('@assets/images/contactIcons/1TaoBao.jpg'),
     },
     {
       id: 2,
       url: 'https://www.youtube.com/embed/Mru6gWBmtrA?enablejsapi=1',
-      poster: require('@/assets/images/contactIcons/TaoBao.jpg'),
+      poster: require('@assets/images/contactIcons/TaoBao.jpg'),
     },
     {
       id: 3,
       url: 'https://www.youtube.com/embed/AJvEJ_h94Jk?enablejsapi=1',
-      poster: require('@/assets/images/contactIcons/Pinduoduo.jpg'),
+      poster: require('@assets/images/contactIcons/Pinduoduo.jpg'),
     },
     {
       id: 4,
       url: 'https://www.youtube.com/embed/lCeg7XqVH9k?enablejsapi=1',
-      poster: require('@/assets/images/contactIcons/Poizon.jpg'),
+      poster: require('@assets/images/contactIcons/Poizon.jpg'),
     },
     {
       id: 5,
       url: 'https://www.youtube.com/embed/Tdo-BBpwbuA?enablejsapi=1',
-      poster: require('@/assets/images/contactIcons/image1688.jpg'),
+      poster: require('@assets/images/contactIcons/image1688.jpg'),
     },
     {
       id: 6,
       url: 'https://www.youtube.com/embed/AtQp_WbfEKo?enablejsapi=1',
-      poster: require('@/assets/images/contactIcons/1TaoBao.jpg')
+      poster: require('@assets/images/contactIcons/1TaoBao.jpg')
     }
   ]
 

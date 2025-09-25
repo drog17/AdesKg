@@ -1,7 +1,7 @@
 import { useRef, useEffect, FC } from 'react';
 import { Animated, LayoutAnimation, Text, TouchableOpacity, View } from 'react-native';
-import Arrow from '@/assets/images/ArrowDown.svg';
-import QuestionIcon from '@/assets/images/Questionbublle.svg';
+import Arrow from '@assets/images/ArrowDown.svg';
+import QuestionIcon from '@assets/images/Questionbublle.svg';
 import { styles } from './QuestionsItemStyles';
 
 interface QuestionsItemProps {

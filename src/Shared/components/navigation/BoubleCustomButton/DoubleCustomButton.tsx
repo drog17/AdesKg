@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import Arrow from '@/assets/images/ArrowIcon.svg';
+import Arrow from '@assets/images/ArrowIcon.svg';
 import { styles } from './DoubleCustomButtonStyles';
 
 interface DoubleCustomButtonProps {

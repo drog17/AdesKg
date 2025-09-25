@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react'
 import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { GoBackBtn } from './GoBackBtn'
-import { Background } from '@/src/Shared/components/Background'
+import { Background } from '@/Shared/components/Background'
 
 interface IOrdersScreenProps {
   order_status: string

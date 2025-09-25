@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native'
-import Arrow from '@/assets/images/ArrowLeft.svg'
+import Arrow from '@assets/images/ArrowLeft.svg'
 import { useNavigation } from 'expo-router'
 
 export const GoBackBtn: FC = () => {

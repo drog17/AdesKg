@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import * as Notifications from 'expo-notifications'
 import { Subscription } from 'expo-notifications'
-import { CheckAndUpdatePushToken } from '@/src/Shared/util/saveAndUpdatePushToken'
+import { CheckAndUpdatePushToken } from '@/Shared/util/saveAndUpdatePushToken'
 
 interface NotificationContextType {
   expoPushToken: string | null

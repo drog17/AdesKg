@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native'
 import { styles } from './NewsStyles'
-import { New } from '@/src/Shared/components/New'
+import { New } from '@/Shared/components/New'
 
 interface NewsProps {
   image: ImageSourcePropType

@@ -109,8 +109,8 @@ const FormField: FC<IFormFieldProps> = ({
             <Image
               source={
                 !showPassword
-                  ? require('../../assets/images/IconEyeClose.png')
-                  : require('../../assets/images/IconEyeOpen.png')
+                  ? require('@assets/images/IconEyeClose.png')
+                  : require('@assets/images/IconEyeOpen.png')
               }
             />
           </TouchableOpacity>

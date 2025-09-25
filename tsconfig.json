@@ -8,7 +8,11 @@
     "jsx": "react-native",
     "allowJs": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./src/*"],
+      "@assets/*": [
+        "./assets/*"
+      ],
     }
   },
   "include": [
@@ -18,6 +22,7 @@
     "**/*.tsx",
     "src/Shared/types/**/*.ts",
     "expo-env.d.ts",
-    "app/context/AuthContext.ts"
+    "app/context/AuthContext.ts",
+    ".expo/types/**/*.ts"
   ]
 }

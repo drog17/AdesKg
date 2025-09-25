@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { Background } from '@/src/Shared/components/Background';
-import { WhiteBack } from '@/src/Shared/components/WhiteBack';
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack'
+import { Background } from '@/Shared/components/Background';
+import { WhiteBack } from '@/Shared/components/WhiteBack';
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
 import { QuestionsItem } from '@/Data/AccountData/QuestionsItem';
 import { QuestionData } from '@/Data/AccountData/QuestionData';
 import { styles } from './QuestionsStyles';

@@ -6,7 +6,7 @@ import OrderList from '../orderList/OrderList'
 import { IOrderData } from '@/Data/store/slices/getStatusOrder/status.order.slice'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/Data/store/store'
-import NoStatusOrdersIcon from '@/assets/images/NoOrdersIcon.svg'
+import NoStatusOrdersIcon from '@assets/images/NoOrdersIcon.svg'
 import dayjs from 'dayjs' 
 import ProductSummary from '../Summary/Summary'
 

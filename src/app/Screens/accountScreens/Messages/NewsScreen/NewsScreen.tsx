@@ -1,10 +1,10 @@
-import { Background } from '@/src/Shared/components/Background';
-import { WhiteBack } from '@/src/Shared/components/WhiteBack';
+import { Background } from '@/Shared/components/Background';
+import { WhiteBack } from '@/Shared/components/WhiteBack';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useEffect, useState, type FC } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
 import { styles } from './NewsScreenStyles';
-import { GoBack } from '@/src/Shared/components/navigation/GoBackButton/GoBack';
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack';
 import axios from 'axios';
 import { ActivityIndicator } from 'react-native-paper';
 

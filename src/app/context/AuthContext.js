@@ -2,7 +2,7 @@ import {
   CheckAndUpdatePushToken,
   ClearPushToken,
   InvalidatePushTokenOnServer,
-} from '@/util/saveAndUpdatePushToken'
+} from '@/Shared/util/saveAndUpdatePushToken'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { router } from 'expo-router'
 import React, { createContext, useContext, useEffect, useState } from 'react'
