@@ -8,13 +8,13 @@ import {
   Keyboard,
 } from 'react-native'
 import React, { FC, useState } from 'react'
-import FormField from '../../../components/formField/FormField'
+import FormField from '@/Shared/components/formField/FormField'
 import { styles } from './style'
 import { router, Link } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import axios from 'axios'
 import { useAuth } from '@/app/context/AuthContext'
-import CustomButton from '@/Shared/components/CustomButton/CustomButton'
+import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
 
 const SignIn: FC = () => {
@@ -155,13 +155,13 @@ const SignIn: FC = () => {
                 />
                 <Link
                   style={styles.forgotPassword}
-                  href={'/(auth)/forgotPassword/ForgotPassword'}
+                  href={'../forgotPassword/ForgotPassword'}
                 >
                   Забыли пароль?
                 </Link>
                 <CustomButton
                   title="Войти"
-                  handlePress={submit}
+                  onPress={submit}
                   isLoading={isLoading}
                 />
               </View>

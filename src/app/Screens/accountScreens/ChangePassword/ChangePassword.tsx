@@ -49,7 +49,7 @@ const ChangePassword: FC = () => {
 
       if (response.data.code) {
         router.replace({
-          pathname: '/(auth)/enterCode/EnterCode',
+          pathname: '/../features/(auth)/enterCode/EnterCode',
           params: { code: response.data.code, email: form.email },
         })
       }

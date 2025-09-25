@@ -9,7 +9,7 @@ import {
   Keyboard,
 } from 'react-native'
 import React, { FC, useState, useEffect, useRef } from 'react'
-import CustomButton from '@/Shared/components/CustomButton/CustomButton'
+import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 import { router, useLocalSearchParams } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import { useNavigation } from '@react-navigation/native'
@@ -89,7 +89,7 @@ const EnterCode: FC = () => {
 
       if (response.data.code) {
         router.replace({
-          pathname: '/(auth)/enterCode/EnterCode',
+          pathname: '/../features/(auth)/enterCode/EnterCode',
           params: { code: response.data.code, email: email },
         })
       }
@@ -122,7 +122,7 @@ const EnterCode: FC = () => {
       })
       setTimeout(() => {
         router.replace({
-          pathname: '/(auth)/createPassword/CreatePassword',
+          pathname: '../createPassword/CreatePassword',
           params: { code: code, email: email },
         })
       }, 800)
@@ -204,8 +204,8 @@ const EnterCode: FC = () => {
                 <CustomButton
                   buttonStyle={{ opacity: isButtonDisabled ? 0.4 : 1 }}
                   title="Подтвердить"
-                  handlePress={submit}
-                  Disabled={isButtonDisabled}
+                  onPress={submit}
+                  disabled={isButtonDisabled}
                 />
                 <Notification
                   message={notification.message}
