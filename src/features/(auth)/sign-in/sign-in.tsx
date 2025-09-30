@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import React, { FC, useState } from 'react'
 import FormField from '@/Shared/components/formField/FormField'
-import { styles } from './style'
+import { styles } from './_style'
 import { router, Link } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import axios from 'axios'
