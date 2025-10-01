@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from './MessagesStyles';
+import { styles } from './Messages.Styles';
 import { useEffect, useState } from 'react';
 import { Background } from '@/Shared/components/Background';
 import { WhiteBack } from '@/Shared/components/WhiteBack';

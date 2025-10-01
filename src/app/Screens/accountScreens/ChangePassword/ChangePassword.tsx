@@ -11,7 +11,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import FormField from '@/Shared/components/formField/FormField';
-import { styles } from './ChangePasswordStyles';
+import { styles } from './ChangePassword.Styles';
 import { Href, router } from 'expo-router';
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
 

@@ -9,7 +9,7 @@ import PackageIcon from "@assets/images/contactIcons/Icon - Package.svg";
 import { BottomModal } from "@/Shared/components/Modal/BottomModal";
 import { Background } from "@/Shared/components/Background";
 import { HelloUser } from "@/Shared/components/HelloUser";
-import { useAuth } from "@/app/context/AuthContext";
+import { useAuth } from "../../../Shared/context/AuthContext";
 import { StyleSheet } from 'react-native'
 
 

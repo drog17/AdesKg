@@ -8,7 +8,7 @@ import {
   import { Portal } from "react-native-paper";
   import { styles } from "./CenterModalStyles";
 import { Href, router } from "expo-router";
-import { useAuth } from '@/app/context/AuthContext'
+import { useAuth } from "@/Shared/context/AuthContext"
 import AsyncStorage from "@react-native-async-storage/async-storage";
   
   interface CenteredModalProps {

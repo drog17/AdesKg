@@ -8,8 +8,8 @@ import { View } from 'react-native'
 import { PaperProvider } from 'react-native-paper'
 import 'react-native-reanimated'
 import { Provider } from 'react-redux'
-import { AuthProvider } from './context/AuthContext'
-import { NotificationProvider } from './context/NotificationContext'
+import { AuthProvider } from '../Shared/context/AuthContext'
+import { NotificationProvider } from '../Shared/context/NotificationContext'
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({

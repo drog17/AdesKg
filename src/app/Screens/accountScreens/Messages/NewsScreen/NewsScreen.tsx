@@ -3,7 +3,7 @@ import { WhiteBack } from '@/Shared/components/WhiteBack';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useEffect, useState, type FC } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
-import { styles } from './NewsScreenStyles';
+import { styles } from './NewsScreen.Styles';
 import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack';
 import axios from 'axios';
 import { ActivityIndicator } from 'react-native-paper';

@@ -24,7 +24,7 @@ import {
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch } from 'react-redux'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../../Shared/context/AuthContext'
 
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
 

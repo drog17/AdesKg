@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native'
-import {CustomButton} from '../Shared/components/CustomButton/CustomButton'
+import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import {

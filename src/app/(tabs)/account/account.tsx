@@ -8,7 +8,7 @@ import { HelloUser } from '@/Shared/components/HelloUser'
 import { Href, useRouter } from 'expo-router'
 import { BottomModal } from '@/Shared/components/Modal/BottomModal'
 import { CenterModal } from '@/Shared/components/Modal/CenterModal'
-import { useAuth } from '@/app/context/AuthContext'
+import { useAuth } from '../../../Shared/context/AuthContext'
 import { StyleSheet } from 'react-native'
 import WhatsappIcon from '@assets/images/WhatsApp.svg'
 

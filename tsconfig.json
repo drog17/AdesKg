@@ -16,13 +16,13 @@
     }
   },
   "include": [
-    "app/**/*.ts",
-    "app/**/*.tsx",
+    "src/app/**/*.ts",
+    "src/app/**/*.tsx",
     "**/*.ts",
     "**/*.tsx",
     "src/Shared/types/**/*.ts",
     "expo-env.d.ts",
-    "app/context/AuthContext.ts",
+    "src/app/context/AuthContext.ts",
     ".expo/types/**/*.ts"
   ]
 }
