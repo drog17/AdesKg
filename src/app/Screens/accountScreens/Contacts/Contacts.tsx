@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { Background } from '@/Shared/components/Background';
 import { WhiteBack } from '@/Shared/components/WhiteBack';
-import { styles } from './Contacts.Styles';
+import { styles } from '../../../../styles/accountScreensStyles/Contacts.Styles';
 import { Linking, Text, TouchableOpacity, View } from 'react-native';
 import InstagramIcon from '@assets/images/Instagram.svg'
 import TelegramIcon from '@assets/images/Telegram.svg'

@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import React, { FC, useState } from 'react'
 import FormField from '@/Shared/components/formField/FormField'
-import { styles } from './_style'
+import { styles } from '@/styles/authStyles/CreatePassword_styles/_style'
 import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 import { router, useLocalSearchParams } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'

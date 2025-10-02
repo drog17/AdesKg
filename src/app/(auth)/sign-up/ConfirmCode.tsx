@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { OtpInput } from 'react-native-otp-entry'
 import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
-import { styles } from './_style'
 
 interface Props {
   otp: string

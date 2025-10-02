@@ -580,10 +580,10 @@
 // export default SignUp
 import React from 'react'
 import { ImageBackground, KeyboardAvoidingView, Platform } from 'react-native'
-import { styles } from './_style'
-import { useSignUp } from '../../../Shared/hooks/useSignUp'
-import SignUpForm from './SignUpForm'
-import ConfirmCode from './ConfirmCode'
+import { styles } from '@/styles/authStyles/sign-up_styles/_style'
+import { useSignUp } from '@/Shared/hooks/useSignUp'
+import SignUpForm from './sign-up/SignUpForm'
+import ConfirmCode from './sign-up/ConfirmCode'
 
 const SignUp = () => {
   const state = useSignUp()

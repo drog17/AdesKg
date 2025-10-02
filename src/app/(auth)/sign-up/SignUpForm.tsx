@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import FormField from '@/Shared/components/formField/FormField'
 import { CustomButton } from '@/Shared/components/CustomButton/CustomButton'
 import CustomCheckBox from '@/Shared/components/CustomCheckBox/CustomCheckBox'
-import { styles } from './_style'
+import { styles } from '@/styles/authStyles/sign-up_styles/_style'
 
 interface Props {
     form: any
