@@ -10,8 +10,8 @@
 // } from 'react-native'
 // import React, { FC, useState, useEffect, useRef } from 'react'
 // import FormField from '@/Shared/components/formField/FormField'
-// import { styles } from './style'
-// import CustomButton from '@/Shared/components/CustomButton/CustomButton'
+// import { styles } from '@/styles/authStyles/sign-up_styles/_style'
+// import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 // import { router, Link } from 'expo-router'
 // import CustomCheckBox from '@/Shared/components/CustomCheckBox/CustomCheckBox'
 // import { Svg, Path } from 'react-native-svg'
@@ -312,7 +312,7 @@
 
 //   return (
 //     <ImageBackground
-//       source={require('../@assets/images/Graident_16.png')}
+//       source={require('@assets/images/Graident_16.png')}
 //       style={styles.fullBackground}
 //       resizeMode="cover"
 //     >
@@ -486,9 +486,9 @@
 //                       </Text>
 //                     </View>
 
-//                     <CustomBotton
+//                     <CustomButton
 //                       title="Регистрация"
-//                       handlePress={submit}
+//                       onPress={submit}
 //                       isLoading={isLoading}
 //                     />
 //                   </View>
@@ -551,9 +551,9 @@
 //                         </Text>
 //                       </TouchableOpacity>
 //                     )}
-//                     <CustomBotton
+//                     <CustomButton
 //                       title="Регистрация"
-//                       handlePress={submitConfirm}
+//                       onPress={submitConfirm}
 //                       isLoading={isLoading}
 //                     />
 
@@ -578,39 +578,31 @@
 // }
 
 // export default SignUp
-import React from 'react'
+
+import React, { FC } from 'react'
 import { ImageBackground, KeyboardAvoidingView, Platform } from 'react-native'
 import { styles } from '@/styles/authStyles/sign-up_styles/_style'
-import { useSignUp } from '@/Shared/hooks/useSignUp'
 import SignUpForm from './sign-up/SignUpForm'
-import ConfirmCode from './sign-up/ConfirmCode'
+import OtpConfirmForm from './sign-up/OtpConfirmForm'
+import { useSignUpForm } from '@/Shared/hooks/useSignUpForm'
 
-const SignUp = () => {
-  const state = useSignUp()
+const SignUp: FC = () => {
+  const signUp = useSignUpForm()
 
   return (
-    <ImageBackground source={require('@assets/images/Graident_16.png')} style={styles.fullBackground}>
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        {!state.isFormComplete ? (
-          <SignUpForm
-            form={state.form}
-            setForm={state.setForm}
-            message={state.message}
-            isChecked={true}
-            setIsChecked={() => {}}
-            isLoading={state.isLoading}
-            onSubmit={state.handleSubmit}
-          />
+    <ImageBackground
+      source={require('@assets/images/Graident_16.png')}
+      style={styles.fullBackground}
+      resizeMode="cover"
+    >
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        {!signUp.isFormComplete ? (
+          <SignUpForm {...signUp} />
         ) : (
-          <ConfirmCode
-            otp={state.otp}
-            setOtp={state.setOtp}
-            timeLeft={state.timeLeft}
-            isTimerActive={state.isTimerActive}
-            startNewTimer={state.startNewTimer}
-            onConfirm={state.handleConfirm}
-            isLoading={state.isLoading}
-          />
+          <OtpConfirmForm {...signUp} />
         )}
       </KeyboardAvoidingView>
     </ImageBackground>

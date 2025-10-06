@@ -62,11 +62,11 @@ const App = () => {
             <Animated.View style={[styles.btns, buttonsAnimatedStyle]}>
               <CustomButton
                 title="Войти"
-                onPress={() => router.push('./(auth)/sign-in/sign-in')}
+                onPress={() => router.push('./(auth)/sign-in')}
               />
               <CustomButton
                 title="Регистрация"
-                onPress={() => router.push('./(auth)/sign-up/sign-up')}
+                onPress={() => router.push('./(auth)/sign-up')}
                 buttonStyle={{
                   backgroundColor: '#fffffa',
                   borderWidth: 1,

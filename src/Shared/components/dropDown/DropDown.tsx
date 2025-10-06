@@ -5,7 +5,6 @@ import {
   FlatList,
   Modal,
   TouchableWithoutFeedback,
-  Platform,
 } from "react-native";
 import React, { useCallback, useRef, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
@@ -72,7 +71,7 @@ export default function Dropdown({
         >
           {value || placeholder}
         </Text>
-        <AntDesign name={"caretdown"} />
+        <AntDesign name="down" />
       </TouchableOpacity>
       {expanded ? (
         <Modal visible={expanded} transparent>
