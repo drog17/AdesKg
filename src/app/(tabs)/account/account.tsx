@@ -1,57 +1,55 @@
-import React, { useState } from 'react'
-import { ImageBackground, Linking, SafeAreaView, View } from 'react-native'
-import backgroundImage from '@assets/images/adesFon.jpg'
-import { CustomButton } from '@/Shared/components/navigation/CustomButton'
-import { DoubleCustomButton } from '@/Shared/components/navigation/BoubleCustomButton'
-import { AccountButtonData } from '@/Data/AccountData/AccountButtonsData/AccountButtonData'
-import { HelloUser } from '@/Shared/components/HelloUser'
-import { Href, useRouter } from 'expo-router'
-import { BottomModal } from '@/Shared/components/Modal/BottomModal'
-import { CenterModal } from '@/Shared/components/Modal/CenterModal'
-import { useAuth } from '../../../Shared/context/AuthContext'
-import { StyleSheet } from 'react-native'
-import WhatsappIcon from '@assets/images/WhatsApp.svg'
+import React, { useState } from 'react';
+import { ImageBackground, Linking, View, StyleSheet } from 'react-native';
+import backgroundImage from '@assets/images/adesFon.jpg';
+import { CustomButton } from '@/Shared/components/navigation/CustomButton';
+import { DoubleCustomButton } from '@/Shared/components/navigation/BoubleCustomButton';
+import { AccountButtonData } from '@/Data/AccountData/AccountButtonsData/AccountButtonData';
+import { HelloUser } from '@/Shared/components/HelloUser';
+import { Href, useRouter } from 'expo-router';
+import { BottomModal } from '@/Shared/components/Modal/BottomModal';
+import { CenterModal } from '@/Shared/components/Modal/CenterModal';
+import { useAuth } from '@/Shared/context/AuthContext';
+import WhatsappIcon from '@assets/images/WhatsApp.svg';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const Account = () => {
-  const [isBottomModalVisible, setBottomModalVisible] = useState(false)
-  const [isCenterModalVisible, setCenterModalVisible] = useState(false)
-  const [modalTitle, setModalTitle] = useState('')
-  const router = useRouter()
-  const { userProfile } = useAuth()
-  const showDeleteAccount = userProfile?.email === 'aitymkulovich@gmail.com'
-  const hideFirstButton = userProfile?.email === 'aitymkulovich@gmail.com'
+const Account: React.FC = () => {
+  const [isBottomModalVisible, setBottomModalVisible] = useState(false);
+  const [isCenterModalVisible, setCenterModalVisible] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const router = useRouter();
+  const { userProfile } = useAuth();
+
+  const showDeleteAccount = userProfile?.email === 'aitymkulovich@gmail.com';
+  const hideFirstButton = userProfile?.email === 'aitymkulovich@gmail.com';
 
   const handlePress = (buttonName: string, route: string | null) => {
     if (route) {
-      // router.push(route as Href<string | object>)
+      router.push(route as Href);
     } else {
-      setModalTitle(buttonName)
+      setModalTitle(buttonName);
       if (buttonName === 'Помощь') {
-        setBottomModalVisible(true)
+        setBottomModalVisible(true);
       } else {
-        setCenterModalVisible(true)
+        setCenterModalVisible(true);
       }
     }
-  }
+  };
 
   const linkToDeleteAccount = () => {
-    const url = `https://ades.kg/delete-account`
-    Linking.openURL(url)
-  }
+    const url = `https://ades.kg/delete-account`;
+    Linking.openURL(url).catch((e) => console.error('Open url error', e));
+  };
 
   return (
-    <ImageBackground
-      source={backgroundImage}
-      style={styles.background}
-      resizeMode="cover"
-    >
+    <ImageBackground source={backgroundImage} style={styles.background} resizeMode="cover">
       <SafeAreaView style={styles.container}>
         <View style={styles.firstSection}>
           <HelloUser
-            firstName={userProfile.name}
-            id={userProfile.personal_code}
+            firstName={userProfile?.name ?? ''}
+            id={userProfile?.personal_code != null ? String(userProfile.personal_code) : undefined}
           />
         </View>
+
         <View style={styles.secondSection}>
           <View style={styles.btnBoxes}>
             {showDeleteAccount && (
@@ -61,6 +59,7 @@ const Account = () => {
                 onPress={linkToDeleteAccount}
               />
             )}
+
             {AccountButtonData.slice(0, 5)
               .filter((button) => !(hideFirstButton && button.id === 1))
               .map((button) => (
@@ -72,31 +71,34 @@ const Account = () => {
                 />
               ))}
           </View>
+
           <View style={styles.btnBoxes}>
-            {AccountButtonData.slice(5, 9).map((button, index) =>
-              index % 2 === 0 ? (
-                <DoubleCustomButton
-                  key={button.id}
-                  icon1={button.icon}
-                  title1={button.title}
-                  onPress1={() => handlePress(button.title, button.route)}
-                  icon2={AccountButtonData[index + 6]?.icon}
-                  title2={AccountButtonData[index + 6]?.title}
-                  onPress2={
-                    AccountButtonData[index + 6]
-                      ? () =>
-                          handlePress(
-                            AccountButtonData[index + 6].title,
-                            AccountButtonData[index + 6].route
-                          )
-                      : () => {}
-                  }
-                />
-              ) : null
-            )}
+            {(() => {
+              const pairs: React.ReactNode[] = [];
+              const start = 5;
+              for (let i = start; i < Math.min(AccountButtonData.length, start + 4); i += 2) {
+                const btn1 = AccountButtonData[i];
+                const btn2 = AccountButtonData[i + 1]; // может быть undefined
+                if (!btn1) continue;
+
+                pairs.push(
+                  <DoubleCustomButton
+                    key={`double-${btn1.id}-${btn2?.id ?? 'none'}`}
+                    icon1={btn1.icon}
+                    title1={btn1.title}
+                    onPress1={() => handlePress(btn1.title, btn1.route ?? null)}
+                    icon2={btn2?.icon}
+                    title2={btn2?.title ?? ''}
+                    onPress2={btn2 ? () => handlePress(btn2.title, btn2.route ?? null) : () => {}}
+                  />
+                );
+              }
+              return pairs;
+            })()}
           </View>
         </View>
       </SafeAreaView>
+
       <BottomModal
         visible={isBottomModalVisible}
         onClose={() => setBottomModalVisible(false)}
@@ -107,11 +109,10 @@ const Account = () => {
         onClose={() => setCenterModalVisible(false)}
       />
     </ImageBackground>
-  )
-}
+  );
+};
 
-export default Account
-
+export default Account;
 const styles = StyleSheet.create({
   background: {
     flex: 1,
@@ -139,4 +140,4 @@ const styles = StyleSheet.create({
   btnBoxes: {
     gap: 10,
   },
-})
+});

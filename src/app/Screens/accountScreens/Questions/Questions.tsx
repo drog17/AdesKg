@@ -5,7 +5,7 @@ import { WhiteBack } from '@/Shared/components/WhiteBack';
 import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
 import { QuestionsItem } from '@/Data/AccountData/QuestionsItem';
 import { QuestionData } from '@/Data/AccountData/QuestionData';
-import { styles } from '../../../../styles/accountScreensStyles/Questions.Styles';
+import { styles } from '@/styles/accountScreensStyles/Questions.Styles';
 import { useNavigation } from '@react-navigation/native';
 
 const Questions = () => {

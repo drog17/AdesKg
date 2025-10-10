@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { GoBackBtn } from '../GoBackBtn'
+import { GoBackBtn } from '../../../../Shared/types/GoBackBtn'
 import { Background } from '@/Shared/components/Background'
 import OrdersStatus from '@/Shared/components/ordersStatus/OrdersStatus'
 import { useSelector } from 'react-redux'

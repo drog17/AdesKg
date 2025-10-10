@@ -71,8 +71,9 @@ const Messages = () => {
             params: {
               id: newsItem.id,
             },
-        } as Href<string | object>);
+        });
     }
+    
     return (
       <Background>
         <GoBack title="Аккакунт" />

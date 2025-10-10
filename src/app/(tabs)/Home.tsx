@@ -24,7 +24,7 @@ import {
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch } from 'react-redux'
-import { useAuth } from '../../Shared/context/AuthContext'
+import { useAuth } from '@/Shared/context/AuthContext'
 
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
 
@@ -118,8 +118,8 @@ export default function HomeScreen() {
           <>
             <SafeAreaView style={styles.container}>
               <HelloUser
-                firstName={userProfile?.name}
-                id={userProfile?.personal_code}
+                firstName={userProfile?.name ?? ''}
+                id={userProfile?.personal_code != null ? String(userProfile.personal_code) : undefined}
                 key={'home_screen'}
               />
             </SafeAreaView>
