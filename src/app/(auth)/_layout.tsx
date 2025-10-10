@@ -7,18 +7,18 @@ const AuthLayout: React.FC = () => {
   return (
     <>
       <Stack>
-        <Stack.Screen name="sign-in/sign-in" options={{ headerShown: false }} />
-        <Stack.Screen name="sign-up/sign-up" options={{ headerShown: false }} />
+        <Stack.Screen name="sign-in" options={{ headerShown: false }} />
+        <Stack.Screen name="sign-up" options={{ headerShown: false }} />
         <Stack.Screen
-          name="forgotPassword/ForgotPassword"
+          name="ForgotPassword"
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="enterCode/EnterCode"
+          name="EnterCode"
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="createPassword/CreatePassword"
+          name="CreatePassword"
           options={{ headerShown: false }}
         />
       </Stack>

@@ -1,6 +1,6 @@
 import { Text, View, ScrollView, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { styles } from './TaoBaoStyles'
+import { styles } from '../../../../styles/accountScreensStyles/TaoBao.Styles'
 import { useEffect } from 'react'
 import { Background } from '@/Shared/components/Background'
 import taoBaoImg from '@assets/images/taoBaoInKG.jpg'

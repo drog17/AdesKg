@@ -9,12 +9,12 @@ import {
 } from 'react-native'
 import React, { FC, useState } from 'react'
 import FormField from '@/Shared/components/formField/FormField'
-import { styles } from './style'
+import { styles } from '@/styles/authStyles/sign-in_styles/_style'
 import { router, Link } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import axios from 'axios'
-import { useAuth } from '@/app/context/AuthContext'
-import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
+import { useAuth } from '@/Shared/context/AuthContext'
+import { CustomButton } from '@/Shared/components/CustomButton/CustomButton'
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
 
 const SignIn: FC = () => {
@@ -87,7 +87,7 @@ const SignIn: FC = () => {
   }
   return (
     <ImageBackground
-      source={require('../@assets/images/Graident_16.png')}
+      source={require('@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode="cover"
     >

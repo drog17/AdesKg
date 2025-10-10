@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from './MessagesStyles';
+import { styles } from '../../../../styles/accountScreensStyles/Messages.Styles';
 import { useEffect, useState } from 'react';
 import { Background } from '@/Shared/components/Background';
 import { WhiteBack } from '@/Shared/components/WhiteBack';
@@ -71,8 +71,9 @@ const Messages = () => {
             params: {
               id: newsItem.id,
             },
-        } as Href<string | object>);
+        });
     }
+    
     return (
       <Background>
         <GoBack title="Аккакунт" />

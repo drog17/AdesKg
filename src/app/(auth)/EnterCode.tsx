@@ -13,7 +13,7 @@ import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 import { router, useLocalSearchParams } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import { useNavigation } from '@react-navigation/native'
-import { styles } from './style'
+import { styles } from '@/styles/authStyles/EnterCode_styles/style'
 import Notification from '@/Shared/components/notification/Notification'
 import { OtpInput, OtpInputRef } from 'react-native-otp-entry'
 import axios from 'axios'
@@ -89,7 +89,7 @@ const EnterCode: FC = () => {
 
       if (response.data.code) {
         router.replace({
-          pathname: '/../features/(auth)/enterCode/EnterCode',
+          pathname: '../features/(auth)/enterCode/EnterCode',
           params: { code: response.data.code, email: email },
         })
       }
@@ -140,7 +140,7 @@ const EnterCode: FC = () => {
 
   return (
     <ImageBackground
-      source={require('../@assets/images/Graident_16.png')}
+      source={require('@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode="cover"
     >

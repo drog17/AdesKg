@@ -60,9 +60,9 @@ export const CustomButton: FC<ICustomButton> = ({
 }) => {
   return (
     <TouchableOpacity
-      onPress={onPress} // ✅ заменили handlePress → onPress
+      onPress={onPress} 
       style={[styles.btnLogin, buttonStyle, (disabled || isLoading) && { opacity: 0.5 }]}
-      disabled={disabled || isLoading} // ✅ правильное свойство
+      disabled={disabled || isLoading}
     >
       {isLoading ? (
         <Text style={styles.textBtn}>Загрузка...</Text>

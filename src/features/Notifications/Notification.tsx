@@ -1,39 +1,39 @@
-import { useEffect } from 'react'
-import { useNavigation } from 'expo-router'
-import { Text, View, FlatList, Image } from 'react-native'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/Data/store/store'
-import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
-import { Background } from '@/Shared/components/Background'
-import { NotificationItem } from '@/Shared/components/NotificationItem'
-import { IOrderData } from '@/Data/store/slices/getStatusOrder/status.order.slice'
-import { useDispatch } from 'react-redux'
-import { setNotifications } from '@/Data/store/slices/notificationDelivered/notificationDeliverd.slice'
-import { styles } from './notificationStyles'
+import React, { useEffect } from 'react';
+import { Text, View, FlatList, Image } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/Data/store/store'; 
+import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack';
+import { Background } from '@/Shared/components/Background';
+import { NotificationItem } from '@/Shared/components/NotificationItem';
+import { IOrderData } from '@/Data/store/slices/getStatusOrder/status.order.slice';
+import { setNotifications } from '@/Data/store/slices/notificationDelivered/notificationDeliverd.slice';
+import { styles } from './notificationStyles';
+import { useRouter } from 'expo-router';
 
 interface GroupedNotifications {
-  title: string
-  data: IOrderData[]
+  title: string;
+  data: IOrderData[];
 }
 
 const getNotificationDateTitle = (dateString: string): string => {
-  const notificationDate = new Date(dateString)
-  const today = new Date()
-  const yesterday = new Date()
-  yesterday.setDate(today.getDate() - 1)
+  const notificationDate = new Date(dateString);
+  const today = new Date();
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
 
   if (notificationDate.toDateString() === today.toDateString()) {
-    return 'Сегодня'
+    return 'Сегодня';
   } else if (notificationDate.toDateString() === yesterday.toDateString()) {
-    return 'Вчера'
+    return 'Вчера';
   } else {
-    return notificationDate.toLocaleDateString()
+    return notificationDate.toLocaleDateString();
   }
-}
+};
 
 export default function Notification() {
-  const navigation = useNavigation()
-  const dispatch = useDispatch()
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   const deliveredOrders = useSelector((state: RootState) =>
     state.orders.data
       .filter((order) => order.status === 'delivered')
@@ -41,42 +41,38 @@ export default function Notification() {
         (a, b) =>
           new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime()
       )
-  )
+  );
+
   const status = useSelector((state: RootState) =>
     state.notification.notificationData.find((order) => order.isRead)
-  )
+  );
 
-  useEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    })
-  }, [navigation])
-
+  // сохраняем уведомления при размонтировании
   useEffect(() => {
     return () => {
-      dispatch(setNotifications(deliveredOrders))
-    }
-  }, [])
+      dispatch(setNotifications(deliveredOrders));
+    };
+  }, [dispatch, deliveredOrders]);
 
   const groupedNotifications: GroupedNotifications[] = deliveredOrders.reduce(
     (acc: GroupedNotifications[], notification) => {
-      const title = getNotificationDateTitle(notification.dateCreated)
-      const existingGroup = acc.find((group) => group.title === title)
+      const title = getNotificationDateTitle(notification.dateCreated);
+      const existingGroup = acc.find((group) => group.title === title);
 
       if (existingGroup) {
-        existingGroup.data.push(notification)
+        existingGroup.data.push(notification);
       } else {
-        acc.push({ title, data: [notification] })
+        acc.push({ title, data: [notification] });
       }
 
-      return acc
+      return acc;
     },
     []
-  )
+  );
 
   return (
     <Background>
-      <GoBack title="Главная" />
+      <GoBack title="Главная"/>
       <View style={styles.container}>
         {deliveredOrders.length > 0 ? (
           <FlatList
@@ -101,7 +97,7 @@ export default function Notification() {
         ) : (
           <View style={styles.list}>
             <Image
-              source={require('@assets/images/Illustration.png')}
+              source={require('../../assets/images/Illustration.png')}
               style={styles.img}
             />
             <Text style={styles.desc}>У вас пока нет уведомлений</Text>
@@ -109,5 +105,5 @@ export default function Notification() {
         )}
       </View>
     </Background>
-  )
+  );
 }

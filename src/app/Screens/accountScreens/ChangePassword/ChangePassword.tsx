@@ -11,7 +11,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import FormField from '@/Shared/components/formField/FormField';
-import { styles } from './ChangePasswordStyles';
+import { styles } from '@/styles/accountScreensStyles/ChangePassword.Styles';
 import { Href, router } from 'expo-router';
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
 
@@ -49,7 +49,7 @@ const ChangePassword: FC = () => {
 
       if (response.data.code) {
         router.replace({
-          pathname: '/../features/(auth)/enterCode/EnterCode',
+          pathname: '../features/(auth)/enterCode/EnterCode',
           params: { code: response.data.code, email: form.email },
         })
       }
@@ -122,11 +122,7 @@ const ChangePassword: FC = () => {
                   placeholder="example@gmail.com"
                 />
                 <CustomButton
-                  // title="Отправить код"
-                  // handlePress={submit}
-                  // isLoading={isLoading}
-                  // Disabled={isDisabled}
-                  title="Отправить сообщение"
+                  title="Отправить код"
                   onPress={submit} 
                   isLoading={isLoading}
                   disabled={isDisabled}

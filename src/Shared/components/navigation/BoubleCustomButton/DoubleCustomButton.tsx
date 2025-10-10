@@ -11,8 +11,6 @@ interface DoubleCustomButtonProps {
     title2: string;          
     onPress2: () => void;     
   }
-  
-
 
   export const DoubleCustomButton: FC<DoubleCustomButtonProps> = ({
     icon1: Icon1,

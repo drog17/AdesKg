@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import React, { FC, useState } from 'react'
-import FormField from '../../../components/formField/FormField'
-import { styles } from './style'
-import CustomButton from '@/Shared/components/CustomButton/CustomButton'
+import FormField from '@/Shared/components/formField/FormField'
+import { styles } from '@/styles/authStyles/CreatePassword_styles/_style'
+import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 import { router, useLocalSearchParams } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import { useNavigation } from '@react-navigation/native'
@@ -94,7 +94,7 @@ const CreatePassword: FC = () => {
 
   return (
     <ImageBackground
-      source={require('../@assets/images/Graident_16.png')}
+      source={require('@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode="cover"
     >
@@ -147,7 +147,7 @@ const CreatePassword: FC = () => {
                 />
                 <CustomButton
                   title="Сохранить"
-                  handlePress={submit}
+                  onPress={submit}
                   isLoading={isLoading}
                 />
                 <Notification

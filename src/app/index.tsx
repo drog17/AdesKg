@@ -6,8 +6,8 @@ import {
   Image,
 } from 'react-native'
 import React, { useEffect } from 'react'
-import { SafeAreaView } from 'react-native'
-import {CustomButton} from '../Shared/components/CustomButton/CustomButton'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import {
@@ -62,11 +62,11 @@ const App = () => {
             <Animated.View style={[styles.btns, buttonsAnimatedStyle]}>
               <CustomButton
                 title="Войти"
-                onPress={() => router.push('/../features/(auth)/sign-in/sign-in')}
+                onPress={() => router.push('./(auth)/sign-in')}
               />
               <CustomButton
                 title="Регистрация"
-                onPress={() => router.push('/../features/(auth)/sign-up/sign-up')}
+                onPress={() => router.push('./(auth)/sign-up')}
                 buttonStyle={{
                   backgroundColor: '#fffffa',
                   borderWidth: 1,

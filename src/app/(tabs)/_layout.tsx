@@ -57,6 +57,16 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
+        name="instruction/instruction"
+        options={{
+          title: 'Contact',
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon icon={ContactIcon} name="инструкция" focused={focused} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="account/account"
         options={{
           title: 'Account',

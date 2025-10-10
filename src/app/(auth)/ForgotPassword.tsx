@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import React, { FC, useState } from 'react'
-import FormField from '../../../components/formField/FormField'
-import { styles } from './style'
-import CustomButton from '@/Shared/components/CustomButton/CustomButton'
+import FormField from '@/Shared/components/formField/FormField'
+import { styles } from '@/styles/authStyles/ForgotPassword_styles/_style'
+import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
 import { router } from 'expo-router'
 import { Svg, Path } from 'react-native-svg'
 import { useNavigation } from '@react-navigation/native'
@@ -64,7 +64,7 @@ const ForgotPassword: FC = () => {
 
   return (
     <ImageBackground
-      source={require('../@assets/images/Graident_16.png')}
+      source={require('@assets/images/Graident_16.png')}
       style={styles.fullBackground}
       resizeMode="cover"
     >
@@ -121,9 +121,9 @@ const ForgotPassword: FC = () => {
                 />
                 <CustomButton
                   title="Отправить код"
-                  handlePress={submit}
+                  onPress={submit}
                   isLoading={isLoading}
-                  Disabled={isDisabled}
+                  disabled={isDisabled}
                 />
               </View>
             </ScrollView>

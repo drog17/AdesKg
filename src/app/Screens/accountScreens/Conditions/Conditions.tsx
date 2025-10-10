@@ -1,6 +1,6 @@
 import { Image, ScrollView, Text, View} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from './ConditionsStyle';
+import { styles } from '../../../../styles/accountScreensStyles/Conditions.Style';
 import { useEffect } from 'react';
 import { Background } from '@/Shared/components/Background';
 import conditionImg from '@assets/images/conditionImg.jpg'

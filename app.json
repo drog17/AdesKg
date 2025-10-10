@@ -7,7 +7,6 @@
     "icon": "./assets/images/productIcon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -27,21 +26,21 @@
         "backgroundColor": "#ffffff"
       }
     },
-
     "notification": {
       "icon": "./assets/images/notification_android.png"
     },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "kg.ades.app",
-      "infoPlist": { "ITSAppUsesNonExemptEncryption": false }
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/icon.png"
     },
-
     "plugins": [
       "expo-router",
       "expo-notifications",
@@ -52,19 +51,25 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-web-browser"
     ],
-
-    "experiments": { "typedRoutes": true },
+    "experiments": {
+      "typedRoutes": true
+    },
     "extra": {
-      "router": { "origin": false },
-      "eas": { "projectId": "54e8b4b6-2480-4ec0-9523-ed7a4a1851d9" }
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "54e8b4b6-2480-4ec0-9523-ed7a4a1851d9"
+      }
     },
     "updates": {
       "enabled": true,
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/54e8b4b6-2480-4ec0-9523-ed7a4a1851d9"
     },
-    "runtimeVersion": { "policy": "appVersion" }
+    "runtimeVersion": "1.0.0"
   }
 }
