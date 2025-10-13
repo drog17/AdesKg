@@ -49,7 +49,6 @@ const Account: React.FC = () => {
             id={userProfile?.personal_code != null ? String(userProfile.personal_code) : undefined}
           />
         </View>
-
         <View style={styles.secondSection}>
           <View style={styles.btnBoxes}>
             {showDeleteAccount && (
