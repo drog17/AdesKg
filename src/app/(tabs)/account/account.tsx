@@ -59,7 +59,6 @@ const Account: React.FC = () => {
                 onPress={linkToDeleteAccount}
               />
             )}
-
             {AccountButtonData.slice(0, 5)
               .filter((button) => !(hideFirstButton && button.id === 1))
               .map((button) => (
