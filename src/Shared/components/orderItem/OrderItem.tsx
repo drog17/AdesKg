@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import OrderIcon from '@assets/images/IconOrder.svg'
-import { IOrderData } from '@/Data/store/slices/getStatusOrder/status.order.slice'
+import { IOrderData } from '@/Data/features/orders/orders.slice'
 
 interface OrderItemProps {
   order: IOrderData

@@ -163,6 +163,7 @@ const SignIn: FC = () => {
                   title="Войти"
                   onPress={submit}
                   isLoading={isLoading}
+                  buttonStyle={{backGroundColor:'#5eb147'}}
                 />
               </View>
             </ScrollView>

@@ -1,11 +1,11 @@
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../styles/accountScreensStyles/Messages.Styles';
+import { styles } from '@/styles/accountScreensStyles/Messages.Styles';
 import { useEffect, useState } from 'react';
 import { Background } from '@/Shared/components/Background';
 import { WhiteBack } from '@/Shared/components/WhiteBack';
 import { News } from '@/Shared/components/News';
-import { Href, router } from 'expo-router';
+import { router } from 'expo-router';
 import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
