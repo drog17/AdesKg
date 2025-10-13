@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
-import ordersReducer from '../features/orders/orders.slice'
-import productHistoryReducer from '../features/orders/productHistory.slice'
-import searchReducer from '../features/search/search.slice'
-import notificationReducer from '../features/notifications/notification.slice'
+import ordersReducer from '@/features/orders/orders.slice'
+import productHistoryReducer from '@/features/orders/productHistory.slice'
+import searchReducer from '@/features/search/search.slice'
+import notificationReducer from '@/features/notifications/notification.slice'
 
 export const store = configureStore({
   reducer: {
