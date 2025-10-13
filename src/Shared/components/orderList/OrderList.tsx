@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import OrderItem from '../orderItem/OrderItem'
-import { IOrderData } from '@/Data/store/slices/getStatusOrder/status.order.slice'
+import { IOrderData } from '@/Data/features/orders/orders.slice'
 
 interface OrderListProps {
   orders: IOrderData[]

@@ -4,12 +4,12 @@ import InventoryStatus from '@/Shared/components/inventoryStatus/InvertoryStatus
 import SearchBar from '@/Shared/components/searchBar/SearchBar'
 import {
   IProductHistory,
-  setProductHistory,
-} from '@/Data/store/slices/getStatusOrder/productHistory.slice'
+  setHistoryForOrder,
+} from '@/Data/features/orders/productHistory.slice'
 import {
   IOrderData,
-  setOrder,
-} from '@/Data/store/slices/getStatusOrder/status.order.slice'
+  upsetOrders,
+} from '@/Data/features/orders/orders.slice'
 import { useFocusEffect } from '@react-navigation/native'
 import axios from 'axios'
 import React, { useCallback, useEffect, useState } from 'react'
@@ -23,7 +23,7 @@ import {
   View,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '@/Data/store/store'
 import { useAuth } from '@/Shared/context/AuthContext'
 
 const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL
@@ -43,7 +43,7 @@ export default function HomeScreen() {
     ON_THE_WAY: 0,
   })
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   // Общая функция загрузки данных
   const loadData = useCallback(
@@ -57,23 +57,27 @@ export default function HomeScreen() {
           axios.get<IResponse>(`${BASE_URL}/product/all/${userId}`, {
             headers: { 'Content-Type': 'application/json' },
           }),
-          axios.get<IProductHistory[]>(
-            `${BASE_URL}/product/history/${userId}`,
-            {
-              headers: { 'Content-Type': 'application/json' },
-            }
-          ),
+          axios.get<IProductHistory[]>(`${BASE_URL}/product/history/${userId}`, {
+            headers: { 'Content-Type': 'application/json' },
+          }),
         ])
 
+        // Обновляем статистику
         setCounts({
           DELIVERED: allRes.data.DELIVERED,
           IN_STORAGE: allRes.data.IN_STORAGE,
           ON_THE_WAY: allRes.data.ON_THE_WAY,
         })
-        dispatch(setOrder(allRes.data.products))
-        dispatch(setProductHistory(histRes.data))
+
+        // Обновляем заказы
+        dispatch(upsetOrders(allRes.data.products))
+
+        // Обновляем историю — теперь передаём orderId и список history
+        if (allRes.data.products?.length) {
+          const firstOrderId = allRes.data.products[0].id // пример: можно расширить под каждый заказ
+          dispatch(setHistoryForOrder({ orderId: firstOrderId, history: histRes.data }))
+        }
       } catch (error: any) {
-        // Полезные логи
         console.error(
           'Error fetching data:',
           error?.message,
@@ -85,18 +89,18 @@ export default function HomeScreen() {
     [dispatch]
   )
 
-  // 1) Просто логируем userProfile.id когда он появляется/меняется
+  // Логируем userProfile.id
   useEffect(() => {
     console.log('userProfile.id →', userProfile?.id)
   }, [userProfile?.id])
 
-  // 2) Загружаем данные при первом появлении id (и если id поменяется)
+  // Загружаем данные при первом появлении id
   useEffect(() => {
     if (!userProfile?.id) return
     loadData(userProfile.id)
   }, [userProfile?.id, loadData])
 
-  // 3) Дополнительно перезагрузка при возврате на экран (фокус)
+  // Перезагрузка при возврате на экран
   useFocusEffect(
     useCallback(() => {
       if (!userProfile?.id) return
@@ -119,7 +123,11 @@ export default function HomeScreen() {
             <SafeAreaView style={styles.container}>
               <HelloUser
                 firstName={userProfile?.name ?? ''}
-                id={userProfile?.personal_code != null ? String(userProfile.personal_code) : undefined}
+                id={
+                  userProfile?.personal_code != null
+                    ? String(userProfile.personal_code)
+                    : undefined
+                }
                 key={'home_screen'}
               />
             </SafeAreaView>

@@ -5,17 +5,18 @@ import { GoBackBtn } from '@/Shared/types/GoBackBtn'
 import { Background } from '@/Shared/components/Background'
 import OrdersStatus from '@/Shared/components/ordersStatus/OrdersStatus'
 import { RootState } from '@/Data/store/store'
+import {selectAllOrders, IOrderData} from '@/Data/features/orders/orders.slice'
 
 const In_Kyrgyzstan = () => {
   const navigation = useNavigation()
-  const { data } = useSelector((state: RootState) => state.orders)
+  const orders = useSelector((state: RootState) => selectAllOrders(state))
   useEffect(() => {
     navigation.setOptions({
       headerShown: false,
     })
   }, [navigation])
 
-  const in_storage_orders_arr = data.filter((el) => el.status === 'delivered')
+  const in_storage_orders_arr = orders.filter((el: IOrderData) => el.status === 'delivered')
 
   return (
     <Background>

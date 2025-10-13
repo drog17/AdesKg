@@ -90,13 +90,13 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
           />
 
           <View style={styles.boxCheckBox}>
-            <CustomCheckBox isChecked={isChecked} setIsChecked={setIsChecked}   hasError={!isChecked && !!message} />
+            <CustomCheckBox isChecked={isChecked} setIsChecked={setIsChecked} hasError={!isChecked && !!message} />
             <Text style={styles.textCheckBox}>
               Нажимая, вы соглашаетесь с <Text style={styles.linkCheckBox}>политикой конфиденциальности</Text>
             </Text>
           </View>
 
-          <CustomButton title="Регистрация" onPress={handleSubmit} isLoading={isLoading} />
+          <CustomButton title="Регистрация" onPress={handleSubmit} isLoading={isLoading} buttonStyle={{ backGroundColor: '#5eb147' }}/>
         </View>
       </ScrollView>
     </View>

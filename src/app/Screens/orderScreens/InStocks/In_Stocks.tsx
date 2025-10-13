@@ -1,15 +1,16 @@
+
 import { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { GoBackBtn } from '../../../../Shared/types/GoBackBtn'
 import { Background } from '@/Shared/components/Background'
 import OrdersStatus from '@/Shared/components/ordersStatus/OrdersStatus'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/Data/store/store'
 import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
+import { IOrderData, selectAllOrders } from '@/Data/features/orders/orders.slice'
 
 const In_Stocks = () => {
   const navigation = useNavigation()
-  const { data } = useSelector((state: RootState) => state.orders)
+  const allOrders = useSelector((state: RootState) => selectAllOrders(state) ?? [])
 
   useEffect(() => {
     navigation.setOptions({
@@ -17,12 +18,12 @@ const In_Stocks = () => {
     })
   }, [navigation])
 
-  const in_storage_orders_arr = data.filter((el) => el.status === 'in_storage')
+  const inStorageOrders = allOrders.filter((order: IOrderData) => order.status === 'in_storage')
 
   return (
     <Background>
       <GoBack title="Главная" />
-      <OrdersStatus order_status="На складе" orders={in_storage_orders_arr} />
+      <OrdersStatus order_status="На складе" orders={inStorageOrders} />
     </Background>
   )
 }

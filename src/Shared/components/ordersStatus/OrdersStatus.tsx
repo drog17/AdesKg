@@ -1,13 +1,13 @@
+
 import { FC, useState } from 'react'
 import { StyleSheet, View, Text, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import SwitchForOrders from '../switchForOrders/SwitchForOrders'
 import OrderList from '../orderList/OrderList'
-import { IOrderData } from '@/Data/store/slices/getStatusOrder/status.order.slice'
+import { IOrderData, selectAllOrders } from '@/Data/features/orders/orders.slice'
 import { useSelector } from 'react-redux'
-import { RootState } from '@/Data/store/store'
 import NoStatusOrdersIcon from '@assets/images/NoOrdersIcon.svg'
-import dayjs from 'dayjs' 
+import dayjs from 'dayjs'
 import ProductSummary from '../Summary/Summary'
 
 interface IOrdersStatusProps {
@@ -17,67 +17,73 @@ interface IOrdersStatusProps {
 
 const OrdersStatus: FC<IOrdersStatusProps> = ({ order_status, orders }) => {
   const [activeTab, setActiveTab] = useState(order_status)
-  const { data } = useSelector((state: RootState) => state.orders)
-  const productHistory = useSelector((state: RootState) => state.productHistory.allHistory)
-  const deliveredProducts = productHistory.filter(
-    (product) => product.statusNew === 'delivered'
-  )
 
-  let arr: IOrderData[] | [] = orders
+  const allOrders = useSelector((state: any) => selectAllOrders(state) ?? []) as IOrderData[]
+  const productHistory = useSelector((state: any) => state.productHistory?.allHistory ?? []) as any[]
+  const deliveredProducts = productHistory.filter(product => product.statusNew === 'delivered')
 
+  let arr: IOrderData[] = orders ?? []
+
+  // Фильтрация по вкладкам
   switch (activeTab) {
     case 'В пути':
-      arr = data.filter((el) => el.status === 'on_the_way')
+      arr = allOrders.filter(el => el?.status === 'on_the_way')
       break
     case 'На складе':
-      arr = data.filter((el) => el.status === 'in_storage')
+      arr = allOrders.filter(el => el?.status === 'in_storage')
       break
     case 'В Кыргызстане':
-      arr = data.filter((el) => el.status === 'delivered')
-      break
-    default:
+      arr = allOrders.filter(el => el?.status === 'delivered')
       break
   }
 
-  const getOrderDay = (dateUpdated: string) => {
+  // Получаем день заказа
+  const getOrderDay = (dateUpdated?: string) => {
+    if (!dateUpdated || !dayjs(dateUpdated).isValid()) return 'Неизвестная дата'
     const date = dayjs(dateUpdated)
-    if (date.isSame(dayjs(), 'day')) return 'Сегодня' 
+    if (date.isSame(dayjs(), 'day')) return 'Сегодня'
     if (date.isSame(dayjs().subtract(1, 'day'), 'day')) return 'Вчера'
-    return date.format('DD.MM.YYYY') 
+    return date.format('DD.MM.YYYY')
   }
 
-  const groupedOrders = arr.reduce<Record<string, IOrderData[]>>((acc, order) => {
+  // Группировка заказов по дням как массив объектов
+  const groupedOrders: { day: string; orders: IOrderData[] }[] = []
+
+  arr.forEach(order => {
     const day = getOrderDay(order.dateUpdated)
-    if (!acc[day]) {
-      acc[day] = []
+    let dayGroup = groupedOrders.find(g => g.day === day)
+    if (!dayGroup) {
+      dayGroup = { day, orders: [] }
+      groupedOrders.push(dayGroup)
     }
-    acc[day].push(order)
-    return acc
-  }, {})
+    dayGroup.orders.push(order)
+  })
 
   return (
     <SafeAreaView style={styles.container}>
       <SwitchForOrders activeTab={activeTab} onTabChange={setActiveTab} />
-      <ScrollView showsVerticalScrollIndicator={true} style={styles.listBoxes}>
-        {Object.keys(groupedOrders).length > 0 ? (
-          Object.entries(groupedOrders).reverse().map(([day, orders]) => {
-            const relatedProducts = deliveredProducts.filter((product) =>
-              orders.some((order) =>
-                dayjs(order.dateUpdated).isSame(dayjs(product.changedDateTime), 'day')
+      <ScrollView showsVerticalScrollIndicator style={styles.listBoxes}>
+        {groupedOrders.length > 0 ? (
+          groupedOrders
+            .slice()
+            .reverse()
+            .map(group => {
+              const relatedProducts = deliveredProducts.filter(product =>
+                group.orders.some(order =>
+                  order.dateUpdated &&
+                  dayjs(order.dateUpdated).isSame(dayjs(product.changedDateTime), 'day')
+                )
               )
-            )
 
-            console.log(`Related Products for ${day}:`, relatedProducts)
-
-            return (
-              <View style={styles.groupedContainer} key={day}>
-                <OrderList orders={orders} day={day} />
-                {activeTab === 'В Кыргызстане' && relatedProducts.length > 0 && (
-                  <ProductSummary products={relatedProducts} />
-                )}
-              </View>
-            )
-          })
+              return (
+                <View style={styles.groupedContainer} key={group.day}>
+                  <OrderList orders={group.orders} day={group.day} />
+                  {activeTab === 'В Кыргызстане' && relatedProducts.length > 0 && (
+                    <ProductSummary products={relatedProducts} />
+                  )}
+                </View>
+              )
+            })
         ) : (
           <View style={styles.noStatusOrders}>
             <NoStatusOrdersIcon />
@@ -99,7 +105,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   listBoxes: {
-    flex: 1
+    flex: 1,
   },
   groupedContainer: {
     flexDirection: 'column',
@@ -109,7 +115,6 @@ const styles = StyleSheet.create({
   },
   noStatusOrders: {
     marginTop: 22,
-    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },

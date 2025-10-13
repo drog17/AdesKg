@@ -1,16 +1,24 @@
 import { configureStore } from '@reduxjs/toolkit'
-import statusOrderSlice from './slices/getStatusOrder/status.order.slice'
-import searcOrderSlice from './slices/filterSearchOrder/searc.order.slice'
-import notificationDeliverdSlice from './slices/notificationDelivered/notificationDeliverd.slice'
-import productHostorySlice from './slices/getStatusOrder/productHistory.slice'
+import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
+import ordersReducer from '../features/orders/orders.slice'
+import productHistoryReducer from '../features/orders/productHistory.slice'
+import searchReducer from '../features/search/search.slice'
+import notificationReducer from '../features/notifications/notification.slice'
+
 export const store = configureStore({
   reducer: {
-    orders: statusOrderSlice,
-    productHistory: productHostorySlice,
-    searchOrder: searcOrderSlice,
-    notification: notificationDeliverdSlice,
+    orders: ordersReducer,
+    productHistory: productHistoryReducer,
+    search: searchReducer,
+    notifications: notificationReducer,
   },
+  devTools: process.env.NODE_ENV !== 'production',
 })
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+export const useAppDispatch = () => useDispatch<AppDispatch>()
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+
+export default store

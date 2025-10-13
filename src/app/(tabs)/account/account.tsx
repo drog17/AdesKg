@@ -71,7 +71,6 @@ const Account: React.FC = () => {
                 />
               ))}
           </View>
-
           <View style={styles.btnBoxes}>
             {(() => {
               const pairs: React.ReactNode[] = [];

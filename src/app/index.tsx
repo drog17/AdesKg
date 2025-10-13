@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import {CustomButton} from '@/Shared/components/CustomButton/CustomButton'
+import { CustomButton } from '@/Shared/components/CustomButton/CustomButton'
 import { router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import {
@@ -25,16 +25,16 @@ const App = () => {
 
   useEffect(() => {
     const prepare = async () => {
-        try {
-            logoOpacity.value = withTiming(1, { duration: 1000 });
-            logoPosition.value = withDelay(1000, withTiming(-100, { duration: 1000 }));
-            buttonsOpacity.value = withDelay(2000, withTiming(1, { duration: 1000 }));
-        } catch (e) {
-            console.warn(e);
-        } 
+      try {
+        logoOpacity.value = withTiming(1, { duration: 1000 });
+        logoPosition.value = withDelay(1000, withTiming(-100, { duration: 1000 }));
+        buttonsOpacity.value = withDelay(2000, withTiming(1, { duration: 1000 }));
+      } catch (e) {
+        console.warn(e);
+      }
     };
     prepare();
-}, []);
+  }, []);
 
   const logoAnimatedStyle = useAnimatedStyle(() => ({
     opacity: logoOpacity.value,
@@ -63,6 +63,11 @@ const App = () => {
               <CustomButton
                 title="Войти"
                 onPress={() => router.push('./(auth)/sign-in')}
+                buttonStyle={{
+                  backgroundColor: '#5eb147',
+                  bordeStyle: 'solid',
+                }}
+                textStyles={{ color: '#e3e3e0ff', fontSize:22, fontWeight:'300' }}
               />
               <CustomButton
                 title="Регистрация"
@@ -73,7 +78,7 @@ const App = () => {
                   bordeStyle: 'solid',
                   borderColor: '#5eb147',
                 }}
-                textStyles={{ color: '#232323' }}
+                textStyles={{ color: '#232323', fontSize:22 }}
               />
             </Animated.View>
           </View>
@@ -95,13 +100,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    alignSelf: 'center', 
-    resizeMode: 'contain', 
+    alignSelf: 'center',
+    resizeMode: 'contain',
   },
   logoContainer: {
     alignItems: 'center',
-    justifyContent: 'center', 
-    flex: 1, 
+    justifyContent: 'center',
+    flex: 1,
   },
   container: {
     width: 288,
@@ -115,10 +120,5 @@ const styles = StyleSheet.create({
     width: '100%',
     rowGap: 20,
     marginBottom: 40,
-  },
-  btnRegistration: {
-    borderWidth: 1,
-    borderColor: '#90EE90',
-    backgroundColor: '#fffffa',
   },
 })

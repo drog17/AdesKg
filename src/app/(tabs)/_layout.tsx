@@ -1,6 +1,7 @@
 import ContactIcon from '@assets/images/tabsIcons/Contact.svg'
 import HomeAdes from '@assets/images/tabsIcons/HomeAdes.svg'
 import UserIcon from '@assets/images/tabsIcons/userIcon.svg'
+import InstructionIcon from '@assets/images/tabsIcons/Instruction.svg'
 import { Tabs } from 'expo-router'
 import { StyleSheet, Text, View } from 'react-native'
 import { SvgProps } from 'react-native-svg'
@@ -57,12 +58,12 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="instruction/instruction"
+        name="instruction/Instruction"
         options={{
-          title: 'Contact',
+          title: 'Instruction',
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon icon={ContactIcon} name="инструкция" focused={focused} />
+            <TabIcon icon={InstructionIcon} name="Инструкция" focused={focused} />
           ),
         }}
       />

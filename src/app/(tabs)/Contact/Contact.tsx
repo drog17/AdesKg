@@ -10,7 +10,7 @@ import PackageIcon from '@assets/images/contactIcons/Icon - Package.svg';
 import { BottomModal } from '@/Shared/components/Modal/BottomModal';
 import { Background } from '@/Shared/components/Background';
 import { HelloUser } from '@/Shared/components/HelloUser';
-import { useAuth } from '../../../Shared/context/AuthContext';
+import { useAuth } from '@/Shared/context/AuthContext';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -47,12 +47,12 @@ const Contact: FC = () => {
         </View>
         <View style={styles.banner}>
           <CustomButton
-            icon={<ChatIcon width={24} height={24} />}
+            icon={<ChatIcon/>}
             title="Связаться с менеджером"
             onPress={() => handlePress('Связаться с менеджером', null)}
           />
           <CustomButton
-            icon={<DeliveryIcon width={24} height={24} />}
+            icon={<DeliveryIcon />}
             title="Оформить доставку"
             onPress={() =>
               handlePress(
@@ -62,12 +62,12 @@ const Contact: FC = () => {
             }
           />
           <CustomButton
-            icon={<MoneyIcon width={24} height={24} />}
+            icon={<MoneyIcon />}
             title="Выкуп товара"
             onPress={() => openWhatsAppChat('996502905055')}
           />
           <CustomButton
-            icon={<PackageIcon width={24} height={24} />}
+            icon={<PackageIcon />}
             title="Крупногабарит"
             onPress={() =>
               handlePress(
