@@ -89,7 +89,7 @@ const EnterCode: FC = () => {
 
       if (response.data.code) {
         router.replace({
-          pathname: '../features/(auth)/enterCode/EnterCode',
+          pathname: '../EnterCode',
           params: { code: response.data.code, email: email },
         })
       }
@@ -122,7 +122,7 @@ const EnterCode: FC = () => {
       })
       setTimeout(() => {
         router.replace({
-          pathname: '../createPassword/CreatePassword',
+          pathname: '../CreatePassword',
           params: { code: code, email: email },
         })
       }, 800)

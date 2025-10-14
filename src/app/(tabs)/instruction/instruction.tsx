@@ -4,7 +4,6 @@ import * as Clipboard from 'expo-clipboard';
 import { Ionicons } from '@expo/vector-icons';
 import { styles } from '@/styles/tabsStyles/styles';
 import { VideoPlayer } from '@/Shared/components/VideoPlayer';
-import { CustomButton } from '@/Shared/components/CustomButton/CustomButton';
 
 const warehouseAddress = [
   "1. 收件人: ваш код",
@@ -21,12 +20,6 @@ const WarehouseScreen: React.FC = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
-  const [showVideo, setShowVideo] = useState(false);
-
-  const handlePress = () => {
-    setShowVideo(prev => !prev);
-  }
 
   return (
     <ScrollView style={styles.container}>

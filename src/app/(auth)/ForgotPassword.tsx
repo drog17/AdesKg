@@ -46,7 +46,7 @@ const ForgotPassword: FC = () => {
 
       if (response.data.code) {
         router.replace({
-          pathname: '/(auth)/enterCode/EnterCode',
+          pathname: '../EnterCode',
           params: { code: response.data.code, email: form.email },
         })
       }

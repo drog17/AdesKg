@@ -77,7 +77,6 @@ const Account: React.FC = () => {
                 const btn1 = AccountButtonData[i];
                 const btn2 = AccountButtonData[i + 1]; // может быть undefined
                 if (!btn1) continue;
-
                 pairs.push(
                   <DoubleCustomButton
                     key={`double-${btn1.id}-${btn2?.id ?? 'none'}`}

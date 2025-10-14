@@ -70,7 +70,7 @@ const CreatePassword: FC = () => {
           })
 
           setTimeout(() => {
-            router.replace('/(auth)/sign-in/sign-in')
+            router.replace('../sign-in')
           }, 800)
         }
       } catch (error) {

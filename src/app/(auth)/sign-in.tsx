@@ -155,7 +155,7 @@ const SignIn: FC = () => {
                 />
                 <Link
                   style={styles.forgotPassword}
-                  href={'../forgotPassword/ForgotPassword'}
+                  href={'../ForgotPassword'}
                 >
                   Забыли пароль?
                 </Link>
