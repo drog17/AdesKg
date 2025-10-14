@@ -43,7 +43,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (expoPushToken) {
         console.log('Push token updated during login:', expoPushToken)
       }
-      // Перенаправляем на главный экран после успешного входа
       router.replace('/(tabs)/Home')
     } catch (error) {
       console.error('Ошибка сохранения токена или профиля:', error)
@@ -115,7 +114,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setSocket(null)
       }
     }
-  }, [userProfile?.id]) // Зависимость только от userProfile.id
+  }, [userProfile?.id]) 
 
   const value: AuthContextType = {
     accessToken,
