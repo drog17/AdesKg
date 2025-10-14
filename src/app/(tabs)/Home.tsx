@@ -5,11 +5,11 @@ import SearchBar from '@/Shared/components/searchBar/SearchBar'
 import {
   IProductHistory,
   setHistoryForOrder,
-} from '@/Data/features/orders/productHistory.slice'
+} from '@/features/orders/productHistory.slice'
 import {
   IOrderData,
   upsetOrders,
-} from '@/Data/features/orders/orders.slice'
+} from '@/features/orders/orders.slice'
 import { useFocusEffect } from '@react-navigation/native'
 import axios from 'axios'
 import React, { useCallback, useEffect, useState } from 'react'

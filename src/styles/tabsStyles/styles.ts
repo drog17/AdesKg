@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
 
   addressContainer: {
-    marginTop: 30,
+    marginTop: 20,
     backgroundColor: '#f8f8f8',
     borderRadius: 10,
     padding: 16,

@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
-import { GoBackBtn } from '../../../../Shared/types/GoBackBtn'
+import { GoBackBtn } from '@/Shared/types/GoBackBtn'
 import { Background } from '@/Shared/components/Background'
 import OrdersStatus from '@/Shared/components/ordersStatus/OrdersStatus'
-import {selectAllOrders, IOrderData} from '@/Data/features/orders/orders.slice'
+import {selectAllOrders, IOrderData} from '@/features/orders/orders.slice'
 import { RootState } from '@/Data/store/store'
 
 const OnTheWay = () => {

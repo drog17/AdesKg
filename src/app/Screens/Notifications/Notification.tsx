@@ -7,7 +7,7 @@ import { Background } from '@/Shared/components/Background';
 import { NotificationItem } from '@/Shared/components/NotificationItem';
 import { IOrderData, selectAllOrders } from '@/features/orders/orders.slice';
 import { setNotifications } from '@/features/notifications/notification.slice';
-import { styles } from './notificationStyles';
+import { styles } from '@/styles/notificationStyle/notificationStyles';
 import { useRouter } from 'expo-router';
 
 interface GroupedNotifications {
@@ -30,7 +30,7 @@ const getNotificationDateTitle = (dateString: string): string => {
   }
 };
 
-export default function Notification() {
+const Notification =() => {
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -109,3 +109,4 @@ export default function Notification() {
     </Background>
   );
 }
+export default Notification

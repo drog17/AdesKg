@@ -6,7 +6,7 @@ import OrdersStatus from '@/Shared/components/ordersStatus/OrdersStatus'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/Data/store/store'
 import { GoBack } from '@/Shared/components/navigation/GoBackButton/GoBack'
-import { IOrderData, selectAllOrders } from '@/Data/features/orders/orders.slice'
+import { IOrderData, selectAllOrders } from '@/features/orders/orders.slice'
 
 const In_Stocks = () => {
   const navigation = useNavigation()
